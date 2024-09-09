@@ -17,3 +17,20 @@ jobs:
       run: just lint-frontend
     - name: Build
       run: just build-frontend
+  
+  backend:
+    name: Backend
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: cashapp/activate-hermit@v1
+    - name: Install dependencies
+      run: just pnpm-install
+    - name: Lint
+      run: just lint-backend
+    - name: Build
+      run: just build-backend
+    - name: Test
+      run: just test-backend
+ 
