@@ -19,3 +19,7 @@ format: format-frontend
 format-frontend: pnpm-install
   @cd frontend && pnpm run lint:fix
 
+build: build-frontend
+
+build-frontend: pnpm-install
+  @cd frontend && pnpm run build
