@@ -4,7 +4,8 @@ _help:
 pnpm-install:
   @pnpm install
 
-dev: dev-frontend
+dev:
+  @docker compose up
 
 dev-frontend: pnpm-install
   @cd frontend && pnpm run dev
@@ -28,7 +29,7 @@ format-frontend: pnpm-install
 format-backend: pnpm-install
   @cd backend && pnpm run lint:fix
 
-build: build-frontend
+build: build-frontend build-backend
 
 build-frontend: pnpm-install
   @cd frontend && pnpm run build
