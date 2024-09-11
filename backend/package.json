@@ -9,20 +9,26 @@
     "lint": "biome check .",
     "lint:fix": "biome format . --write",
     "build": "tsc",
-    "test": "vitest run"
+    "test": "vitest run",
+    "db:migrate": "drizzle-kit migrate",
+    "db:generate": "drizzle-kit generate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.20.0"
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.33.0",
+    "express": "^4.20.0",
+    "postgres": "^3.4.4"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/node": "^22.5.4",
     "@types/supertest": "^6.0.2",
+    "drizzle-kit": "^0.24.2",
     "nodemon": "^3.1.4",
     "supertest": "^7.0.0",
     "ts-node": "^10.9.2",
