@@ -1,38 +1,12 @@
 services:
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: frontend
-      args:
-        - VITE_API_URL=http://backend:4000
-    ports:
-      - "3000:3000"
-    environment:
-      - VITE_API_URL=/api
-    volumes:
-      - ./frontend:/app/frontend
-      - /app/frontend/node_modules
-
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: backend
-    ports:
-      - "4000:4000"
-    environment:
-      - PORT=4000
-      - DATABASE_URL=postgres://postgres:secret@db:5432/shortstack
-
   db:
-    image: postgres:13
-    ports:
-      - "5432:5432"
+    image: postgres:16
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
       POSTGRES_DB: shortstack
+    ports:
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
